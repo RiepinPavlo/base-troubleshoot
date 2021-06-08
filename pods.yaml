@@ -1,0 +1,1998 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2021-06-06T00:08:53Z"
+    generateName: server-6dff6cdf8d-
+    labels:
+      app: server
+      pod-template-hash: 6dff6cdf8d
+      run: canary
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:pod-template-hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"747eca9f-e189-41eb-84c1-9a81d65df156"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:containers:
+            k:{"name":"busy-server"}:
+              .: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:resources: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:terminationGracePeriodSeconds: {}
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.42.0.30"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: k3s
+      operation: Update
+      time: "2021-06-07T20:27:36Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            f:run: {}
+      manager: kubectl-label
+      operation: Update
+      time: "2021-06-07T20:54:16Z"
+    name: server-6dff6cdf8d-hnwl4
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: server-6dff6cdf8d
+      uid: 747eca9f-e189-41eb-84c1-9a81d65df156
+    resourceVersion: "4909"
+    uid: fbe9918d-84ac-4a01-807e-b7655d3da6fe
+  spec:
+    containers:
+    - image: riepinpavlo/server:1.0.0
+      imagePullPolicy: IfNotPresent
+      name: busy-server
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-6vk42
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: k3os-21535
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: default-token-6vk42
+      secret:
+        defaultMode: 420
+        secretName: default-token-6vk42
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-06T00:08:53Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:27:34Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:27:34Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-06T00:08:53Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://66420bfcc46c33fa755fa39ab23ba0c3fd50d2eb888b152e0599f8d84e21422b
+      image: docker.io/riepinpavlo/server:1.0.0
+      imageID: docker.io/riepinpavlo/server@sha256:a88cdfef6ac98a7d607960bb613bdab44aa9fe0c46e4f138a524615a15bcb87a
+      lastState:
+        terminated:
+          containerID: containerd://5982c50b864c1ccd98c800208467de4dee693f4cb064fd6ff500447b7807dece
+          exitCode: 255
+          finishedAt: "2021-06-07T20:27:22Z"
+          reason: Unknown
+          startedAt: "2021-06-07T20:18:08Z"
+      name: busy-server
+      ready: true
+      restartCount: 2
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-07T20:27:33Z"
+    hostIP: 192.168.1.149
+    phase: Running
+    podIP: 10.42.0.30
+    podIPs:
+    - ip: 10.42.0.30
+    qosClass: BestEffort
+    startTime: "2021-06-06T00:08:53Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2021-06-06T00:24:29Z"
+    generateName: svclb-server-
+    labels:
+      app: svclb-server
+      controller-revision-hash: 5477fc7498
+      pod-template-generation: "1"
+      run: canary
+      svccontroller.k3s.cattle.io/svcname: server
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:controller-revision-hash: {}
+            f:pod-template-generation: {}
+            f:svccontroller.k3s.cattle.io/svcname: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"e3d6de2a-dfd0-457c-a6ff-f638d529189e"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:affinity:
+            .: {}
+            f:nodeAffinity:
+              .: {}
+              f:requiredDuringSchedulingIgnoredDuringExecution:
+                .: {}
+                f:nodeSelectorTerms: {}
+          f:containers:
+            k:{"name":"lb-port-5555"}:
+              .: {}
+              f:env:
+                .: {}
+                k:{"name":"DEST_IP"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"DEST_PORT"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"DEST_PROTO"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+                k:{"name":"SRC_PORT"}:
+                  .: {}
+                  f:name: {}
+                  f:value: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:ports:
+                .: {}
+                k:{"containerPort":5555,"protocol":"TCP"}:
+                  .: {}
+                  f:containerPort: {}
+                  f:hostPort: {}
+                  f:name: {}
+                  f:protocol: {}
+              f:resources: {}
+              f:securityContext:
+                .: {}
+                f:capabilities:
+                  .: {}
+                  f:add: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:terminationGracePeriodSeconds: {}
+          f:tolerations: {}
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.42.0.29"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: k3s
+      operation: Update
+      time: "2021-06-07T20:27:37Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            f:run: {}
+      manager: kubectl-label
+      operation: Update
+      time: "2021-06-07T20:54:16Z"
+    name: svclb-server-sv67f
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: DaemonSet
+      name: svclb-server
+      uid: e3d6de2a-dfd0-457c-a6ff-f638d529189e
+    resourceVersion: "4910"
+    uid: 3b110ca9-e18e-4358-a8df-38e1b8ac24e4
+  spec:
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchFields:
+            - key: metadata.name
+              operator: In
+              values:
+              - k3os-21535
+    containers:
+    - env:
+      - name: SRC_PORT
+        value: "5555"
+      - name: DEST_PROTO
+        value: TCP
+      - name: DEST_PORT
+        value: "5555"
+      - name: DEST_IP
+        value: 10.43.137.131
+      image: rancher/klipper-lb:v0.1.2
+      imagePullPolicy: IfNotPresent
+      name: lb-port-5555
+      ports:
+      - containerPort: 5555
+        hostPort: 5555
+        name: lb-port-5555
+        protocol: TCP
+      resources: {}
+      securityContext:
+        capabilities:
+          add:
+          - NET_ADMIN
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-6vk42
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: k3os-21535
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoSchedule
+      key: node-role.kubernetes.io/master
+      operator: Exists
+    - effect: NoSchedule
+      key: node-role.kubernetes.io/control-plane
+      operator: Exists
+    - key: CriticalAddonsOnly
+      operator: Exists
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+    - effect: NoSchedule
+      key: node.kubernetes.io/disk-pressure
+      operator: Exists
+    - effect: NoSchedule
+      key: node.kubernetes.io/memory-pressure
+      operator: Exists
+    - effect: NoSchedule
+      key: node.kubernetes.io/pid-pressure
+      operator: Exists
+    - effect: NoSchedule
+      key: node.kubernetes.io/unschedulable
+      operator: Exists
+    volumes:
+    - name: default-token-6vk42
+      secret:
+        defaultMode: 420
+        secretName: default-token-6vk42
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-06T00:24:29Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:27:34Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:27:34Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-06T00:24:29Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://af234d1e6ef603f5bde159fb9786310884a2cf297db7f2438a63aeefef90ccc1
+      image: docker.io/rancher/klipper-lb:v0.1.2
+      imageID: docker.io/rancher/klipper-lb@sha256:2fb97818f5d64096d635bc72501a6cb2c8b88d5d16bc031cf71b5b6460925e4a
+      lastState:
+        terminated:
+          containerID: containerd://4ac517d61d26784eb96c5fd390aed178256cdc8cbad3e344a0226912904a1f18
+          exitCode: 255
+          finishedAt: "2021-06-07T20:27:22Z"
+          reason: Unknown
+          startedAt: "2021-06-07T20:18:08Z"
+      name: lb-port-5555
+      ready: true
+      restartCount: 2
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-07T20:27:34Z"
+    hostIP: 192.168.1.149
+    phase: Running
+    podIP: 10.42.0.29
+    podIPs:
+    - ip: 10.42.0.29
+    qosClass: BestEffort
+    startTime: "2021-06-06T00:24:29Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2021-06-07T20:35:06Z"
+    generateName: server2-85c659f65f-
+    labels:
+      app: server2
+      pod-template-hash: 85c659f65f
+      run: canary
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:pod-template-hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"5a5cc3e2-e3fd-42e3-bb8f-e9d9ec1ab605"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:containers:
+            k:{"name":"server"}:
+              .: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:resources: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:terminationGracePeriodSeconds: {}
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.42.0.31"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: k3s
+      operation: Update
+      time: "2021-06-07T20:35:10Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            f:run: {}
+      manager: kubectl-label
+      operation: Update
+      time: "2021-06-07T20:54:16Z"
+    name: server2-85c659f65f-ghx8f
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: server2-85c659f65f
+      uid: 5a5cc3e2-e3fd-42e3-bb8f-e9d9ec1ab605
+    resourceVersion: "4911"
+    uid: 9e7bd6a9-f5bf-4fb0-89e8-5f02d6a29d00
+  spec:
+    containers:
+    - image: riepinpavlo/server:2.0.0
+      imagePullPolicy: IfNotPresent
+      name: server
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-6vk42
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: k3os-21535
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: default-token-6vk42
+      secret:
+        defaultMode: 420
+        secretName: default-token-6vk42
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:35:06Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:35:10Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:35:10Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:35:06Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://c24b617b6ae7b39dc792fdb80c29eba256912580d02ba167497a1bc8a11e5293
+      image: docker.io/riepinpavlo/server:2.0.0
+      imageID: docker.io/riepinpavlo/server@sha256:6200b4bde454449422bfd46260427bafb5b5637fa719c155b2cc552b534309ea
+      lastState: {}
+      name: server
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-07T20:35:10Z"
+    hostIP: 192.168.1.149
+    phase: Running
+    podIP: 10.42.0.31
+    podIPs:
+    - ip: 10.42.0.31
+    qosClass: BestEffort
+    startTime: "2021-06-07T20:35:06Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2021-06-07T20:41:48Z"
+    generateName: server2-85c659f65f-
+    labels:
+      app: server2
+      pod-template-hash: 85c659f65f
+      run: canary
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:pod-template-hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"5a5cc3e2-e3fd-42e3-bb8f-e9d9ec1ab605"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:containers:
+            k:{"name":"server"}:
+              .: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:resources: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:terminationGracePeriodSeconds: {}
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.42.0.34"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: k3s
+      operation: Update
+      time: "2021-06-07T20:41:50Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            f:run: {}
+      manager: kubectl-label
+      operation: Update
+      time: "2021-06-07T20:54:16Z"
+    name: server2-85c659f65f-hrnpl
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: server2-85c659f65f
+      uid: 5a5cc3e2-e3fd-42e3-bb8f-e9d9ec1ab605
+    resourceVersion: "4912"
+    uid: 9ae121a9-c7f8-40f8-92a3-fe6445ea263b
+  spec:
+    containers:
+    - image: riepinpavlo/server:2.0.0
+      imagePullPolicy: IfNotPresent
+      name: server
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-6vk42
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: k3os-21535
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: default-token-6vk42
+      secret:
+        defaultMode: 420
+        secretName: default-token-6vk42
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:48Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:50Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:50Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:48Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://85030bbcf0f13377ea0f3bdbbc13d52ded8e1637b93a54be1106c73b0df3b66e
+      image: docker.io/riepinpavlo/server:2.0.0
+      imageID: docker.io/riepinpavlo/server@sha256:6200b4bde454449422bfd46260427bafb5b5637fa719c155b2cc552b534309ea
+      lastState: {}
+      name: server
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-07T20:41:50Z"
+    hostIP: 192.168.1.149
+    phase: Running
+    podIP: 10.42.0.34
+    podIPs:
+    - ip: 10.42.0.34
+    qosClass: BestEffort
+    startTime: "2021-06-07T20:41:48Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2021-06-07T20:41:48Z"
+    generateName: server2-85c659f65f-
+    labels:
+      app: server2
+      pod-template-hash: 85c659f65f
+      run: canary
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:pod-template-hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"5a5cc3e2-e3fd-42e3-bb8f-e9d9ec1ab605"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:containers:
+            k:{"name":"server"}:
+              .: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:resources: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:terminationGracePeriodSeconds: {}
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.42.0.33"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: k3s
+      operation: Update
+      time: "2021-06-07T20:41:50Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            f:run: {}
+      manager: kubectl-label
+      operation: Update
+      time: "2021-06-07T20:54:16Z"
+    name: server2-85c659f65f-84hj9
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: server2-85c659f65f
+      uid: 5a5cc3e2-e3fd-42e3-bb8f-e9d9ec1ab605
+    resourceVersion: "4913"
+    uid: 03ca72b5-8056-4c65-82cd-5c7d44df81d4
+  spec:
+    containers:
+    - image: riepinpavlo/server:2.0.0
+      imagePullPolicy: IfNotPresent
+      name: server
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-6vk42
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: k3os-21535
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: default-token-6vk42
+      secret:
+        defaultMode: 420
+        secretName: default-token-6vk42
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:48Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:50Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:50Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:48Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://20c2ab4aa0badde560532b1319aa3db8ec73f3ef6b30f59e4179fd775c20b79a
+      image: docker.io/riepinpavlo/server:2.0.0
+      imageID: docker.io/riepinpavlo/server@sha256:6200b4bde454449422bfd46260427bafb5b5637fa719c155b2cc552b534309ea
+      lastState: {}
+      name: server
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-07T20:41:49Z"
+    hostIP: 192.168.1.149
+    phase: Running
+    podIP: 10.42.0.33
+    podIPs:
+    - ip: 10.42.0.33
+    qosClass: BestEffort
+    startTime: "2021-06-07T20:41:48Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2021-06-07T20:41:48Z"
+    generateName: server2-85c659f65f-
+    labels:
+      app: server2
+      pod-template-hash: 85c659f65f
+      run: canary
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:pod-template-hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"5a5cc3e2-e3fd-42e3-bb8f-e9d9ec1ab605"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:containers:
+            k:{"name":"server"}:
+              .: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:resources: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:terminationGracePeriodSeconds: {}
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.42.0.39"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: k3s
+      operation: Update
+      time: "2021-06-07T20:41:50Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            f:run: {}
+      manager: kubectl-label
+      operation: Update
+      time: "2021-06-07T20:54:16Z"
+    name: server2-85c659f65f-x49bn
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: server2-85c659f65f
+      uid: 5a5cc3e2-e3fd-42e3-bb8f-e9d9ec1ab605
+    resourceVersion: "4914"
+    uid: 7cee6c05-325b-461a-b6e2-35fad5f40f48
+  spec:
+    containers:
+    - image: riepinpavlo/server:2.0.0
+      imagePullPolicy: IfNotPresent
+      name: server
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-6vk42
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: k3os-21535
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: default-token-6vk42
+      secret:
+        defaultMode: 420
+        secretName: default-token-6vk42
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:48Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:50Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:50Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:48Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://8edba9ec441666cc2b9a1c7aaab9b577092275428f2055b57487f91e1bedb345
+      image: docker.io/riepinpavlo/server:2.0.0
+      imageID: docker.io/riepinpavlo/server@sha256:6200b4bde454449422bfd46260427bafb5b5637fa719c155b2cc552b534309ea
+      lastState: {}
+      name: server
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-07T20:41:50Z"
+    hostIP: 192.168.1.149
+    phase: Running
+    podIP: 10.42.0.39
+    podIPs:
+    - ip: 10.42.0.39
+    qosClass: BestEffort
+    startTime: "2021-06-07T20:41:48Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2021-06-07T20:41:48Z"
+    generateName: server2-85c659f65f-
+    labels:
+      app: server2
+      pod-template-hash: 85c659f65f
+      run: canary
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:pod-template-hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"5a5cc3e2-e3fd-42e3-bb8f-e9d9ec1ab605"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:containers:
+            k:{"name":"server"}:
+              .: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:resources: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:terminationGracePeriodSeconds: {}
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.42.0.36"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: k3s
+      operation: Update
+      time: "2021-06-07T20:41:51Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            f:run: {}
+      manager: kubectl-label
+      operation: Update
+      time: "2021-06-07T20:54:16Z"
+    name: server2-85c659f65f-8swns
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: server2-85c659f65f
+      uid: 5a5cc3e2-e3fd-42e3-bb8f-e9d9ec1ab605
+    resourceVersion: "4915"
+    uid: da598b69-c29d-454c-854b-c8cca71464cf
+  spec:
+    containers:
+    - image: riepinpavlo/server:2.0.0
+      imagePullPolicy: IfNotPresent
+      name: server
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-6vk42
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: k3os-21535
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: default-token-6vk42
+      secret:
+        defaultMode: 420
+        secretName: default-token-6vk42
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:48Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:50Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:50Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:48Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://d17249b4576f9248758b7d9c42530f4ff78e79c0e302eb0556c8cc4aa56acddc
+      image: docker.io/riepinpavlo/server:2.0.0
+      imageID: docker.io/riepinpavlo/server@sha256:6200b4bde454449422bfd46260427bafb5b5637fa719c155b2cc552b534309ea
+      lastState: {}
+      name: server
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-07T20:41:49Z"
+    hostIP: 192.168.1.149
+    phase: Running
+    podIP: 10.42.0.36
+    podIPs:
+    - ip: 10.42.0.36
+    qosClass: BestEffort
+    startTime: "2021-06-07T20:41:48Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2021-06-07T20:41:48Z"
+    generateName: server2-85c659f65f-
+    labels:
+      app: server2
+      pod-template-hash: 85c659f65f
+      run: canary
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:pod-template-hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"5a5cc3e2-e3fd-42e3-bb8f-e9d9ec1ab605"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:containers:
+            k:{"name":"server"}:
+              .: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:resources: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:terminationGracePeriodSeconds: {}
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.42.0.32"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: k3s
+      operation: Update
+      time: "2021-06-07T20:41:51Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            f:run: {}
+      manager: kubectl-label
+      operation: Update
+      time: "2021-06-07T20:54:16Z"
+    name: server2-85c659f65f-dd4b5
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: server2-85c659f65f
+      uid: 5a5cc3e2-e3fd-42e3-bb8f-e9d9ec1ab605
+    resourceVersion: "4916"
+    uid: 9b2f4cf5-0a05-4e3e-91af-2dfa4eab9325
+  spec:
+    containers:
+    - image: riepinpavlo/server:2.0.0
+      imagePullPolicy: IfNotPresent
+      name: server
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-6vk42
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: k3os-21535
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: default-token-6vk42
+      secret:
+        defaultMode: 420
+        secretName: default-token-6vk42
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:48Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:50Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:50Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:48Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://cabd71634608953eb018bb411e0f1ecc247fa8a8a338cda475bd575ff39d3e5c
+      image: docker.io/riepinpavlo/server:2.0.0
+      imageID: docker.io/riepinpavlo/server@sha256:6200b4bde454449422bfd46260427bafb5b5637fa719c155b2cc552b534309ea
+      lastState: {}
+      name: server
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-07T20:41:49Z"
+    hostIP: 192.168.1.149
+    phase: Running
+    podIP: 10.42.0.32
+    podIPs:
+    - ip: 10.42.0.32
+    qosClass: BestEffort
+    startTime: "2021-06-07T20:41:48Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2021-06-07T20:41:48Z"
+    generateName: server2-85c659f65f-
+    labels:
+      app: server2
+      pod-template-hash: 85c659f65f
+      run: canary
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:pod-template-hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"5a5cc3e2-e3fd-42e3-bb8f-e9d9ec1ab605"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:containers:
+            k:{"name":"server"}:
+              .: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:resources: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:terminationGracePeriodSeconds: {}
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.42.0.37"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: k3s
+      operation: Update
+      time: "2021-06-07T20:41:52Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            f:run: {}
+      manager: kubectl-label
+      operation: Update
+      time: "2021-06-07T20:54:16Z"
+    name: server2-85c659f65f-jk782
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: server2-85c659f65f
+      uid: 5a5cc3e2-e3fd-42e3-bb8f-e9d9ec1ab605
+    resourceVersion: "4917"
+    uid: bcdb49d2-0ff8-4a96-bf8f-420ed07f708e
+  spec:
+    containers:
+    - image: riepinpavlo/server:2.0.0
+      imagePullPolicy: IfNotPresent
+      name: server
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-6vk42
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: k3os-21535
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: default-token-6vk42
+      secret:
+        defaultMode: 420
+        secretName: default-token-6vk42
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:48Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:50Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:50Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:48Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://514efb48870d9efae22817c00c285951ce06e78a52b4bdc9092350416e9fcb8f
+      image: docker.io/riepinpavlo/server:2.0.0
+      imageID: docker.io/riepinpavlo/server@sha256:6200b4bde454449422bfd46260427bafb5b5637fa719c155b2cc552b534309ea
+      lastState: {}
+      name: server
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-07T20:41:50Z"
+    hostIP: 192.168.1.149
+    phase: Running
+    podIP: 10.42.0.37
+    podIPs:
+    - ip: 10.42.0.37
+    qosClass: BestEffort
+    startTime: "2021-06-07T20:41:48Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2021-06-07T20:41:48Z"
+    generateName: server2-85c659f65f-
+    labels:
+      app: server2
+      pod-template-hash: 85c659f65f
+      run: canary
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:pod-template-hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"5a5cc3e2-e3fd-42e3-bb8f-e9d9ec1ab605"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:containers:
+            k:{"name":"server"}:
+              .: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:resources: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:terminationGracePeriodSeconds: {}
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.42.0.35"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: k3s
+      operation: Update
+      time: "2021-06-07T20:41:52Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            f:run: {}
+      manager: kubectl-label
+      operation: Update
+      time: "2021-06-07T20:54:16Z"
+    name: server2-85c659f65f-t46zm
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: server2-85c659f65f
+      uid: 5a5cc3e2-e3fd-42e3-bb8f-e9d9ec1ab605
+    resourceVersion: "4918"
+    uid: 04390170-c04c-433e-896f-90b046fbcf50
+  spec:
+    containers:
+    - image: riepinpavlo/server:2.0.0
+      imagePullPolicy: IfNotPresent
+      name: server
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-6vk42
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: k3os-21535
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: default-token-6vk42
+      secret:
+        defaultMode: 420
+        secretName: default-token-6vk42
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:48Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:50Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:50Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:48Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://c75fee6923a9d334a829132b2a155488230717c4368e143852963bdf388ca1cd
+      image: docker.io/riepinpavlo/server:2.0.0
+      imageID: docker.io/riepinpavlo/server@sha256:6200b4bde454449422bfd46260427bafb5b5637fa719c155b2cc552b534309ea
+      lastState: {}
+      name: server
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-07T20:41:49Z"
+    hostIP: 192.168.1.149
+    phase: Running
+    podIP: 10.42.0.35
+    podIPs:
+    - ip: 10.42.0.35
+    qosClass: BestEffort
+    startTime: "2021-06-07T20:41:48Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2021-06-07T20:41:48Z"
+    generateName: server2-85c659f65f-
+    labels:
+      app: server2
+      pod-template-hash: 85c659f65f
+      run: canary
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:pod-template-hash: {}
+          f:ownerReferences:
+            .: {}
+            k:{"uid":"5a5cc3e2-e3fd-42e3-bb8f-e9d9ec1ab605"}:
+              .: {}
+              f:apiVersion: {}
+              f:blockOwnerDeletion: {}
+              f:controller: {}
+              f:kind: {}
+              f:name: {}
+              f:uid: {}
+        f:spec:
+          f:containers:
+            k:{"name":"server"}:
+              .: {}
+              f:image: {}
+              f:imagePullPolicy: {}
+              f:name: {}
+              f:resources: {}
+              f:terminationMessagePath: {}
+              f:terminationMessagePolicy: {}
+          f:dnsPolicy: {}
+          f:enableServiceLinks: {}
+          f:restartPolicy: {}
+          f:schedulerName: {}
+          f:securityContext: {}
+          f:terminationGracePeriodSeconds: {}
+        f:status:
+          f:conditions:
+            k:{"type":"ContainersReady"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Initialized"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Ready"}:
+              .: {}
+              f:lastProbeTime: {}
+              f:lastTransitionTime: {}
+              f:status: {}
+              f:type: {}
+          f:containerStatuses: {}
+          f:hostIP: {}
+          f:phase: {}
+          f:podIP: {}
+          f:podIPs:
+            .: {}
+            k:{"ip":"10.42.0.38"}:
+              .: {}
+              f:ip: {}
+          f:startTime: {}
+      manager: k3s
+      operation: Update
+      time: "2021-06-07T20:41:52Z"
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            f:run: {}
+      manager: kubectl-label
+      operation: Update
+      time: "2021-06-07T20:54:16Z"
+    name: server2-85c659f65f-8xtml
+    namespace: default
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: server2-85c659f65f
+      uid: 5a5cc3e2-e3fd-42e3-bb8f-e9d9ec1ab605
+    resourceVersion: "4919"
+    uid: cebbc2eb-d0dc-4cbb-93b7-660264c0f694
+  spec:
+    containers:
+    - image: riepinpavlo/server:2.0.0
+      imagePullPolicy: IfNotPresent
+      name: server
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-6vk42
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: k3os-21535
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: default-token-6vk42
+      secret:
+        defaultMode: 420
+        secretName: default-token-6vk42
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:48Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:50Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:50Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2021-06-07T20:41:48Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: containerd://14a178ece08a3a81303cd801a3e2012086faf22578470fa5a355e08c29cdf379
+      image: docker.io/riepinpavlo/server:2.0.0
+      imageID: docker.io/riepinpavlo/server@sha256:6200b4bde454449422bfd46260427bafb5b5637fa719c155b2cc552b534309ea
+      lastState: {}
+      name: server
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2021-06-07T20:41:50Z"
+    hostIP: 192.168.1.149
+    phase: Running
+    podIP: 10.42.0.38
+    podIPs:
+    - ip: 10.42.0.38
+    qosClass: BestEffort
+    startTime: "2021-06-07T20:41:48Z"
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""

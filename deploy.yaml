@@ -1,0 +1,293 @@
+apiVersion: v1
+items:
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "2"
+    creationTimestamp: "2021-06-05T23:57:38Z"
+    generation: 2
+    labels:
+      app: server
+    managedFields:
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:app: {}
+        f:spec:
+          f:progressDeadlineSeconds: {}
+          f:replicas: {}
+          f:revisionHistoryLimit: {}
+          f:selector: {}
+          f:strategy:
+            f:rollingUpdate:
+              .: {}
+              f:maxSurge: {}
+              f:maxUnavailable: {}
+            f:type: {}
+          f:template:
+            f:metadata:
+              f:labels:
+                .: {}
+                f:app: {}
+            f:spec:
+              f:containers:
+                k:{"name":"busy-server"}:
+                  .: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+              f:dnsPolicy: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:terminationGracePeriodSeconds: {}
+      manager: kubectl-create
+      operation: Update
+      time: "2021-06-05T23:57:38Z"
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:template:
+            f:spec:
+              f:containers:
+                k:{"name":"busy-server"}:
+                  f:image: {}
+      manager: kubectl-edit
+      operation: Update
+      time: "2021-06-06T00:08:53Z"
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:deployment.kubernetes.io/revision: {}
+        f:status:
+          f:availableReplicas: {}
+          f:conditions:
+            .: {}
+            k:{"type":"Available"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Progressing"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:observedGeneration: {}
+          f:readyReplicas: {}
+          f:replicas: {}
+          f:updatedReplicas: {}
+      manager: k3s
+      operation: Update
+      time: "2021-06-06T00:08:58Z"
+    name: server
+    namespace: default
+    resourceVersion: "1439"
+    uid: 7a889ce2-3054-4c9f-a5cf-20c30cad85fe
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: server
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: server
+      spec:
+        containers:
+        - image: riepinpavlo/server:1.0.0
+          imagePullPolicy: IfNotPresent
+          name: busy-server
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2021-06-05T23:57:44Z"
+      lastUpdateTime: "2021-06-05T23:57:44Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2021-06-05T23:57:38Z"
+      lastUpdateTime: "2021-06-06T00:08:58Z"
+      message: ReplicaSet "server-6dff6cdf8d" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 2
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2021-06-07T20:35:06Z"
+    generation: 2
+    labels:
+      app: server2
+    managedFields:
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            .: {}
+            f:app: {}
+        f:spec:
+          f:progressDeadlineSeconds: {}
+          f:replicas: {}
+          f:revisionHistoryLimit: {}
+          f:selector: {}
+          f:strategy:
+            f:rollingUpdate:
+              .: {}
+              f:maxSurge: {}
+              f:maxUnavailable: {}
+            f:type: {}
+          f:template:
+            f:metadata:
+              f:labels:
+                .: {}
+                f:app: {}
+            f:spec:
+              f:containers:
+                k:{"name":"server"}:
+                  .: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+              f:dnsPolicy: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:terminationGracePeriodSeconds: {}
+      manager: kubectl-create
+      operation: Update
+      time: "2021-06-07T20:35:06Z"
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:deployment.kubernetes.io/revision: {}
+        f:status:
+          f:availableReplicas: {}
+          f:conditions:
+            .: {}
+            k:{"type":"Available"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Progressing"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:observedGeneration: {}
+          f:readyReplicas: {}
+          f:replicas: {}
+          f:updatedReplicas: {}
+      manager: k3s
+      operation: Update
+      time: "2021-06-07T20:41:53Z"
+    name: server2
+    namespace: default
+    resourceVersion: "4392"
+    uid: e6a8844a-6226-4df1-8ce2-6db50c854a5e
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 9
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: server2
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: server2
+      spec:
+        containers:
+        - image: riepinpavlo/server:2.0.0
+          imagePullPolicy: IfNotPresent
+          name: server
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 9
+    conditions:
+    - lastTransitionTime: "2021-06-07T20:35:06Z"
+      lastUpdateTime: "2021-06-07T20:35:10Z"
+      message: ReplicaSet "server2-85c659f65f" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2021-06-07T20:41:52Z"
+      lastUpdateTime: "2021-06-07T20:41:52Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 2
+    readyReplicas: 9
+    replicas: 9
+    updatedReplicas: 9
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
